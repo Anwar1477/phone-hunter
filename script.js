@@ -46,6 +46,7 @@ let searchPhone = () => {
             .then(data => displaySearchResult(data));
         // console.log(url)
     }
+    searchReasult.textContent = '';
 
 }
 
@@ -77,6 +78,7 @@ let displaySearchResult = phones => {
     // Spineer Hide 
     toggleSpinner('none');
     toggleSearch('block');
+    infoDiv.textContent = '';
 
 };
 
@@ -92,10 +94,9 @@ let getPhoneDetails = phoneId => {
 
     }
     // getPhoneDetails();
-
+const infoDiv = document.getElementById('phone-info');
 let showDisplay = value => {
     // console.log(value);
-    const infoDiv = document.getElementById('phone-info');
     infoDiv.textContent = '';
     const div = document.createElement('div')
     div.classList.add('card');
