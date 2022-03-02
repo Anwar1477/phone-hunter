@@ -1,0 +1,27 @@
+h1 {
+    color: tomato;
+}
+
+body {
+    background-color: aquamarine;
+}
+
+.col {
+    border: 2px solid gray;
+    border-radius: 20px;
+    /* margin: 10px; */
+    background-color: azure;
+    box-shadow: 10px 5px 5px gray;
+    padding: 10px;
+}
+
+.info-btn {
+    background-color: rgb(23, 146, 146);
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+#spinner {
+    display: none;
+}
