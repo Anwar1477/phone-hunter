@@ -79,3 +79,37 @@ let displaySearchResult = phones => {
     toggleSearch('block');
 
 };
+
+// Specific Phone Details Part 
+
+let getPhoneDetails = phoneId => {
+        // console.log(phoneId.data.mainFeatures);
+        let url = ` https://openapi.programming-hero.com/api/phone/${phoneId}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => showDisplay(data));
+        // .then(data => showDisplay(data));
+
+    }
+    // getPhoneDetails();
+
+let showDisplay = value => {
+    // console.log(value);
+    const infoDiv = document.getElementById('phone-info');
+    infoDiv.textContent = '';
+    const div = document.createElement('div')
+    div.classList.add('card');
+    div.innerHTML = `
+    <img src="${value.data.image}" class="card-img-top" alt="...">
+    <h5>${value.data.name}</h5>
+    <p>Realise Date: ${value.data.releaseDate ? value.data.releaseDate:'Not Available' }</p>
+    <h4 class="text-center">Other Information</h4>
+    <p class="text-center">chipset: ${value.data.mainFeatures.chipSet}</p>
+    <p class="text-center">Displaysize: ${value.data.mainFeatures.displaySize}</p>
+    <p class="text-center">Storage: ${value.data.mainFeatures.storage}</p>
+    <p class="text-center">Sensor: ${value.data.mainFeatures.sensors}</p>
+
+    `
+    infoDiv.appendChild(div);
+
+}
