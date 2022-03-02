@@ -48,3 +48,34 @@ let searchPhone = () => {
     }
 
 }
+
+
+// Display Result 
+
+let displaySearchResult = phones => {
+    let searchReasult = document.getElementById('search-result');
+    searchReasult.textContent = '';
+
+    // console.log(phones.data);
+
+    let datas = phones.data;
+    for (let data of datas) {
+
+        // console.log(data.brand);
+        const div = document.createElement('div');
+        div.className = 'col';
+        div.innerHTML = `
+        <img src="${data.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${data.brand}</h5>
+          <p class="card-text">${data.phone_name}</p>
+          <button class="info-btn" onclick = "getPhoneDetails('${data.slug}')">showDetails</button>
+        `;
+        searchReasult.appendChild(div);
+
+    }
+    // Spineer Hide 
+    toggleSpinner('none');
+    toggleSearch('block');
+
+};
